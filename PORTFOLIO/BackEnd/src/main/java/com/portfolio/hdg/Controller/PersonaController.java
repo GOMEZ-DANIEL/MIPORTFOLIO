@@ -1,9 +1,12 @@
+
+
 package com.portfolio.hdg.Controller;
 
 import com.portfolio.hdg.Entity.Persona;
 import com.portfolio.hdg.Interface.IPersonaService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,46 +22,44 @@ import org.springframework.web.bind.annotation.RestController;
 public class PersonaController {
     @Autowired IPersonaService ipersonaService;
     
-    
     @GetMapping("personas/traer")
     public List<Persona> getPersona(){
         return ipersonaService.getPersona();
     }
     
-    
-    @PostMapping("personas/crear")
+    @PreAuthorize("hasRole('ADMIN')")
+    @PostMapping("/personas/crear")
     public String createPersona(@RequestBody Persona persona){
-            ipersonaService.savePersona(persona);
-            return "la persona fue creada correctamente";  
+        ipersonaService.savePersona(persona);
+        return "La persona fue creada correctamente";
     }
     
+    @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/personas/borrar/{id}")
     public String deletePersona(@PathVariable Long id){
         ipersonaService.deletePersona(id);
-        return "la persona fue eliminada correctamente";
+        return "La persona fue eliminada correctamente";
     }
     
+    @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/personas/editar/{id}")
     public Persona editPersona(@PathVariable Long id,
-                                @RequestParam("nombre") String nuevoNombre,
-                                @RequestParam("apellido") String nuevoApellido,
-                                @RequestParam("img") String nuevoImg){
-        Persona persona = ipersonaService.findpersona(id);
+                               @RequestParam("nombre") String nuevoNombre,
+                               @RequestParam("apellido") String nuevoApellido,
+                               @RequestParam("img") String nuevoImg){
+        Persona persona = ipersonaService.findPersona(id);
         
         persona.setNombre(nuevoNombre);
         persona.setApellido(nuevoApellido);
         persona.setImg(nuevoImg);
         
-        
         ipersonaService.savePersona(persona);
         return persona;
-           
     }
     
-    @GetMapping("/personas/traer/perfil")
+    @GetMapping("personas/traer/perfil")
     public Persona findPersona(){
-        return ipersonaService.findpersona((long)1);
+        return ipersonaService.findPersona((long)1);
     }
-    
-                           
+   
 }
