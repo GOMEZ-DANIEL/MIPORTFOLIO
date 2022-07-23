@@ -4,16 +4,15 @@ import com.portfolio.hdg.Entity.Persona;
 import java.util.List;
 
 public interface IPersonaService {
-    //traer una lista de personas
+    //Traer una lista de personas
     public List<Persona> getPersona();
     
-    //guardar un objeto tipoi persona
+    //Guardar un objeto de tipo Persona
     public void savePersona(Persona persona);
     
-    //eliminar un objeto pero lo buscamos por ID
+    //Eliminar un objeto pero lo buscamos por ID
     public void deletePersona(Long id);
     
-    //buscar una persona por ID
-    public Persona findpersona(Long id);
-    
+    //Buscar una persona por ID
+    public Persona findPersona(Long id);
 }
