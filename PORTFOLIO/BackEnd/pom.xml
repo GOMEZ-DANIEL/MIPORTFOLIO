@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.portfolio</groupId>
-    <artifactId>mgb</artifactId>
+    <artifactId>hdg</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>hdg</name>
     <description>Portfolio de HDG</description>
