@@ -16,9 +16,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgModule } from '@angular/core';
-import { interceptorProvider } from './service/interceptor-service';
-import { NewExperienciaComponent } from './components/experiencia/new-experiencia.component';
-import { EditExperienciaComponent } from './components/experiencia/edit-experiencia.component';
 
 @NgModule({
     declarations: [
@@ -33,9 +30,7 @@ import { EditExperienciaComponent } from './components/experiencia/edit-experien
     ProyectoComponent,
     FooterComponent,
     HomeComponent,
-    LoginComponent,
-    NewExperienciaComponent,
-    EditExperienciaComponent
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -44,9 +39,7 @@ import { EditExperienciaComponent } from './components/experiencia/edit-experien
     NgCircleProgressModule.forRoot({}),
     HttpClientModule
   ],
-  providers: [
-    interceptorProvider
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

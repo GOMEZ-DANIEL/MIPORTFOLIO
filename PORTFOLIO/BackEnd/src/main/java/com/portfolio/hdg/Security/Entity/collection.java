@@ -8,6 +8,6 @@ package com.portfolio.hdg.Security.Entity;
  *
  * @author DANIEL GOMEZ
  */
-public class collection {
+class collection<T> {
     
 }

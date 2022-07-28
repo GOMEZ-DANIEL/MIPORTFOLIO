@@ -3,6 +3,7 @@
 package com.portfolio.hdg.Controller;
 
 import com.portfolio.hdg.Entity.Persona;
+import com.portfolio.hdg.Interface.IPersonaService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -15,7 +16,6 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import com.portfolio.hdg.Interface.IPersonaService;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
@@ -63,3 +63,4 @@ public class PersonaController {
     }
    
 }
+
